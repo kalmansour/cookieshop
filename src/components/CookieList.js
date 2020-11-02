@@ -1,19 +1,14 @@
-import React from "react";
-
-//Styling
-import styles from "../styles";
-
-//Data
+// import styles from "../styles";
 import cookies from "../cookies";
-
-// Componets
 import CookieItem from "./CookieItems";
+// Styling
+import { ListWrapper } from "../styles";
 
 const CookieList = () => {
   const cookieList = cookies.map((cookie) => (
     <CookieItem cookie={cookie} key={cookie.id} />
   ));
-  return <div style={styles.list}>{cookieList}</div>;
+  return <ListWrapper>{cookieList}</ListWrapper>;
 };
 
 export default CookieList;

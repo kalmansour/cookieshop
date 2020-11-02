@@ -1,50 +1,71 @@
-const styles = {
-  text: {
-    textAlign: "center",
-    fontFamily: `Arial, Helvetica, sans-serif`,
-    color: `#572E05`,
-    backgroundColor: "#f2e596",
-  },
+import styled, { createGlobalStyle } from "styled-components";
 
-  slogan: {
-    textAlign: "center",
-    fontFamily: `cursive`,
-    color: `#572E05`,
-  },
+const GlobalStyle = createGlobalStyle`
+  body {
+    color: ${(props) => props.theme.mainColor};
+    background-color: ${(props) => props.theme.backgroundColor}
+  }
+`;
 
-  itemsheader: {
-    textAlign: "center",
-    fontFamily: `Arial, Helvetica, sans-serif`,
-    color: `#572E05`,
-    backgroundColor: "#f2e596",
-  },
+const Title = styled.h1`
+  text-align: center;
+  color: purple;
+  background-color: #f2e596;
+  font-family: Arial, Helvetica, sans-serif;
+`;
 
-  border: {
-    style: "solid",
-    width: "500px",
-    color: `#FAE4AB`,
-  },
+const Description = styled.h4`
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: italic;
+`;
 
-  shopImage: {
-    display: "block",
-    marginLeft: "auto",
-    marginRight: "auto",
-    width: "45%",
-    border: "thick solid #FFD700",
-  },
+const ShopImage = styled.img`
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  border: thick solid;
+  border-color: #ffd700;
+`;
 
-  cookieImage: {
-    width: "200px",
-    height: "200px",
-  },
-  list: {
-    alignItems: "center",
-    justifyContent: "center",
-    display: "flex",
-  },
-  cookie: {
-    margin: "20px",
-  },
+const ListWrapper = styled.div`
+  align-items: center;
+  justify-content: center;
+  display: flex;
+`;
+
+const CookieWrapper = styled.div`
+  margin: 20px;
+
+  img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  p {
+    text-align: center;
+
+    &.cookie-price {
+      color: ${(props) => props.theme.pink};
+    }
+  }
+`;
+
+const ItemsHeader = styled.h3`
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: purple;
+  background-color: #f2e596;
+`;
+
+export {
+  GlobalStyle,
+  Title,
+  Description,
+  ShopImage,
+  ListWrapper,
+  CookieWrapper,
+  ItemsHeader,
 };
-
-export default styles;
