@@ -1,5 +1,11 @@
 import styled, { createGlobalStyle } from "styled-components";
 
+const theme = {
+  mainColor: "purple", // main font color
+  backgroundColor: "#f5fffa", // main background color
+  pink: "#eea9b8",
+};
+
 const GlobalStyle = createGlobalStyle`
   body {
     color: ${(props) => props.theme.mainColor};
@@ -9,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
 
 const Title = styled.h1`
   text-align: center;
-  color: purple;
+  /* color: purple; */
   background-color: #f2e596;
   font-family: Arial, Helvetica, sans-serif;
 `;
@@ -56,7 +62,7 @@ const CookieWrapper = styled.div`
 const ItemsHeader = styled.h3`
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
-  color: purple;
+  /* color: purple; */
   background-color: #f2e596;
 `;
 
@@ -68,4 +74,5 @@ export {
   ListWrapper,
   CookieWrapper,
   ItemsHeader,
+  theme,
 };

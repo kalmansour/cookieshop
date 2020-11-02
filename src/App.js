@@ -5,14 +5,9 @@ import {
   Description,
   ShopImage,
   ItemsHeader,
+  theme,
 } from "./styles";
 import { ThemeProvider } from "styled-components";
-
-const theme = {
-  mainColor: "#52280b", // main font color
-  backgroundColor: "#f5fffa", // main background color
-  pink: "#eea9b8",
-};
 
 function App() {
   return (
