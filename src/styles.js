@@ -1,9 +1,16 @@
 import styled, { createGlobalStyle } from "styled-components";
 
 const theme = {
-  mainColor: "purple", // main font color
-  backgroundColor: "#f5fffa", // main background color
-  pink: "#eea9b8",
+  light: {
+    mainColor: "mediumpurple", // main font color
+    backgroundColor: "#f5fffa", // main background color
+    pink: "#eea9b8",
+  },
+  dark: {
+    mainColor: "#f5fffa", // main font color
+    backgroundColor: "mediumpurple", // main background color
+    pink: "#eea9b8",
+  },
 };
 
 const GlobalStyle = createGlobalStyle`
@@ -11,6 +18,15 @@ const GlobalStyle = createGlobalStyle`
     color: ${(props) => props.theme.mainColor};
     background-color: ${(props) => props.theme.backgroundColor}
   }
+`;
+
+const ThemeButton = styled.button`
+  font-size: 1em;
+  margin: 1.25em;
+  padding: 0.25em 1em;
+  border-radius: 3px;
+  background-color: ${(props) => props.theme.backgroundColor};
+  color: ${(props) => props.theme.mainColor};
 `;
 
 const Title = styled.h1`
@@ -32,13 +48,14 @@ const ShopImage = styled.img`
   margin-right: auto;
   width: 40%;
   border: thick solid;
-  border-color: #ffd700;
+  border-color: ${(props) => props.theme.mainColor};
 `;
 
 const ListWrapper = styled.div`
   align-items: center;
   justify-content: center;
   display: flex;
+  flex-wrap: wrap;
 `;
 
 const CookieWrapper = styled.div`
@@ -48,6 +65,8 @@ const CookieWrapper = styled.div`
     width: 200px;
     height: 200px;
     object-fit: cover;
+    border: thick solid;
+    border-color: ${(props) => props.theme.mainColor};
   }
 
   p {
@@ -59,7 +78,7 @@ const CookieWrapper = styled.div`
   }
 `;
 
-const ItemsHeader = styled.h3`
+const ItemsHeader = styled.h2`
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   /* color: purple; */
@@ -75,4 +94,5 @@ export {
   CookieWrapper,
   ItemsHeader,
   theme,
+  ThemeButton,
 };
