@@ -13,10 +13,8 @@ import { useState } from "react";
 
 function App() {
   const [currentTheme, setCurrentTheme] = useState("light");
-  const toggleTheme = () => {
-    if (currentTheme === "light") setCurrentTheme("dark");
-    else setCurrentTheme("light");
-  };
+  const toggleTheme = () =>
+    setCurrentTheme(currentTheme === "light" ? "dark" : "light");
 
   return (
     <ThemeProvider theme={theme[currentTheme]}>

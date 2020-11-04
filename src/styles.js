@@ -31,7 +31,6 @@ const ThemeButton = styled.button`
 
 const Title = styled.h1`
   text-align: center;
-  /* color: purple; */
   background-color: #f2e596;
   font-family: Arial, Helvetica, sans-serif;
 `;
@@ -85,6 +84,13 @@ const ItemsHeader = styled.h2`
   background-color: #f2e596;
 `;
 
+const SearchBarStyled = styled.input`
+  padding: 0.5rem;
+  margin: 1rem auto;
+  display: block;
+  width: 40%;
+`;
+
 export {
   GlobalStyle,
   Title,
@@ -95,4 +101,5 @@ export {
   ItemsHeader,
   theme,
   ThemeButton,
+  SearchBarStyled,
 };
