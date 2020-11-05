@@ -20,10 +20,10 @@ function App() {
   const toggleTheme = () =>
     setCurrentTheme(currentTheme === "light" ? "dark" : "light");
 
-  // const setView = () => {
-  //   if (cookie) return <CookieDetail cookie={cookie} />;
-  //   else return <CookieList setCookie={setCookie} />;
-  // };
+  const setView = () => {
+    if (cookie) return <CookieDetail cookie={cookie} />;
+    else return <CookieList setCookie={setCookie} />;
+  };
 
   return (
     <ThemeProvider theme={theme[currentTheme]}>
@@ -39,7 +39,8 @@ function App() {
       />
       <ItemsHeader>Choose Wisely</ItemsHeader>
       <CookieList onClick={toggleTheme} setCookie={setCookie} />
-      <CookieDetail cookie={cookie} setCookie={setCookie} />
+      {/* <CookieDetail cookie={cookie} /> */}
+      {setView()}
     </ThemeProvider>
   );
 }
