@@ -20,6 +20,22 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const DetailWrapper = styled.div`
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+
+  img {
+    width: 40%;
+    float: left;
+  }
+
+  p {
+    vertical-align: middle;
+  }
+`;
+
 const ThemeButton = styled.button`
   font-size: 1em;
   margin: 1.25em;
@@ -102,4 +118,5 @@ export {
   theme,
   ThemeButton,
   SearchBarStyled,
+  DetailWrapper,
 };

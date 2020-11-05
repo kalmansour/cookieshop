@@ -8,14 +8,14 @@ import SearchBar from "./SearchBar";
 import { ListWrapper } from "../styles";
 import { useState } from "react";
 
-const CookieList = () => {
+const CookieList = (props) => {
   const [query, setQuery] = useState("");
 
   const filteredCookies = cookies.filter((cookie) =>
     cookie.name.toLowerCase().includes(query.toLowerCase())
   );
   const cookieList = filteredCookies.map((cookie) => (
-    <CookieItem cookie={cookie} key={cookie.id} />
+    <CookieItem cookie={cookie} key={cookie.id} setCookie={props.setCookie} />
   ));
 
   return (

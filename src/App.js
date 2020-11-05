@@ -1,4 +1,5 @@
 import CookieList from "./components/CookieList";
+import CookieDetail from "./components/ CookieDetail";
 import {
   GlobalStyle,
   Title,
@@ -13,8 +14,16 @@ import { useState } from "react";
 
 function App() {
   const [currentTheme, setCurrentTheme] = useState("light");
+
+  const [cookie, setCookie] = useState(null);
+
   const toggleTheme = () =>
     setCurrentTheme(currentTheme === "light" ? "dark" : "light");
+
+  // const setView = () => {
+  //   if (cookie) return <CookieDetail cookie={cookie} />;
+  //   else return <CookieList setCookie={setCookie} />;
+  // };
 
   return (
     <ThemeProvider theme={theme[currentTheme]}>
@@ -29,7 +38,8 @@ function App() {
         alt="Cookie Store"
       />
       <ItemsHeader>Choose Wisely</ItemsHeader>
-      <CookieList onClick={toggleTheme} />
+      <CookieList onClick={toggleTheme} setCookie={setCookie} />
+      <CookieDetail cookie={cookie} setCookie={setCookie} />
     </ThemeProvider>
   );
 }
