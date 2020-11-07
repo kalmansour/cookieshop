@@ -1,5 +1,7 @@
-import CookieList from "./components/CookieList";
-import CookieDetail from "./components/ CookieDetail";
+import { useState } from "react";
+import cookies from "./cookies";
+
+// Styles
 import {
   GlobalStyle,
   Title,
@@ -10,19 +12,41 @@ import {
   ThemeButton,
 } from "./styles";
 import { ThemeProvider } from "styled-components";
-import { useState } from "react";
+
+//Components
+import CookieList from "./components/CookieList";
+import CookieDetail from "./components/ CookieDetail";
 
 function App() {
   const [currentTheme, setCurrentTheme] = useState("light");
-
   const [cookie, setCookie] = useState(null);
+  const [_cookies, setCookies] = useState(cookies);
+
+  const deleteCookie = (cookieId) => {
+    const updatedCookies = _cookies.filter((cookie) => cookie.id !== cookieId);
+    setCookies(updatedCookies);
+  };
 
   const toggleTheme = () =>
     setCurrentTheme(currentTheme === "light" ? "dark" : "light");
 
   const setView = () => {
-    if (cookie) return <CookieDetail cookie={cookie} />;
-    else return <CookieList setCookie={setCookie} />;
+    if (cookie)
+      return (
+        <CookieDetail
+          cookie={cookie}
+          deleteCookie={deleteCookie}
+          setCookie={setCookie}
+        />
+      );
+    else
+      return (
+        <CookieList
+          cookies={_cookies}
+          deleteCookie={deleteCookie}
+          setCookie={setCookie}
+        />
+      );
   };
 
   return (
@@ -38,7 +62,7 @@ function App() {
         alt="Cookie Store"
       />
       <ItemsHeader>Choose Wisely</ItemsHeader>
-      <CookieList onClick={toggleTheme} setCookie={setCookie} />
+      {/* <CookieList onClick={toggleTheme} setCookie={setCookie} /> */}
       {/* <CookieDetail cookie={cookie} /> */}
       {setView()}
     </ThemeProvider>

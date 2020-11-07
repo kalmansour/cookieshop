@@ -5,11 +5,13 @@ const theme = {
     mainColor: "mediumpurple", // main font color
     backgroundColor: "#f5fffa", // main background color
     pink: "#eea9b8",
+    red: "#FF0000",
   },
   dark: {
     mainColor: "#f5fffa", // main font color
     backgroundColor: "mediumpurple", // main background color
     pink: "#eea9b8",
+    red: "#FF0000",
   },
 };
 
@@ -34,6 +36,19 @@ const DetailWrapper = styled.div`
   p {
     vertical-align: middle;
   }
+`;
+
+export const DeleteButtonStyled = styled.p`
+  color: ${(props) => props.theme.red};
+`;
+
+const GoBackButton = styled.button`
+  font-size: 1em;
+  margin: 1.25em;
+  padding: 0.25em 1em;
+  border-radius: 3px;
+  background-color: ${(props) => props.theme.backgroundColor};
+  color: ${(props) => props.theme.mainColor};
 `;
 
 const ThemeButton = styled.button`
@@ -119,4 +134,5 @@ export {
   ThemeButton,
   SearchBarStyled,
   DetailWrapper,
+  GoBackButton,
 };

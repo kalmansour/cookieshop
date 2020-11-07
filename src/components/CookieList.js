@@ -1,4 +1,4 @@
-import cookies from "../cookies";
+import { useState } from "react";
 
 //Components
 import CookieItem from "./CookieItems";
@@ -6,16 +6,20 @@ import SearchBar from "./SearchBar";
 
 // Styling
 import { ListWrapper } from "../styles";
-import { useState } from "react";
 
 const CookieList = (props) => {
   const [query, setQuery] = useState("");
 
-  const filteredCookies = cookies.filter((cookie) =>
+  const filteredCookies = props.cookies.filter((cookie) =>
     cookie.name.toLowerCase().includes(query.toLowerCase())
   );
   const cookieList = filteredCookies.map((cookie) => (
-    <CookieItem cookie={cookie} key={cookie.id} setCookie={props.setCookie} />
+    <CookieItem
+      cookie={cookie}
+      key={cookie.id}
+      setCookie={props.setCookie}
+      deleteCookie={props.deleteCookie}
+    />
   ));
 
   return (
