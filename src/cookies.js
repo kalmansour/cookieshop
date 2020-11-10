@@ -2,6 +2,7 @@ const cookies = [
   {
     id: 1,
     name: "Chocolate Chip Cookie",
+    slug: "chocolate-chip-cookie",
     price: 7,
     description: "That good",
     image:
@@ -10,6 +11,7 @@ const cookies = [
   {
     id: 2,
     name: "White Chocolate Macadamia Cookie",
+    slug: "white-chocolate-macadamia-cookie",
     price: 7,
     description: "That good good",
     image:
@@ -18,6 +20,7 @@ const cookies = [
   {
     id: 3,
     name: "Double Chocolate Chip Cookie",
+    slug: "double-chocolate-chip-cookie",
     price: 7,
     description: "That good good good",
     image:
@@ -26,6 +29,7 @@ const cookies = [
   {
     id: 4,
     name: "Rainbow Cookie Special",
+    slug: "rainbow-cookie-special",
     price: 10,
     description: "That good good good good",
     image:
