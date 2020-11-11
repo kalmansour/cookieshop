@@ -6,7 +6,7 @@ const CookieItem = (props) => {
   const cookie = props.cookie;
 
   return (
-    <CookieWrapper key={cookie.id}>
+    <CookieWrapper key={cookie.name}>
       <Link to={`/cookies/${cookie.slug}`}>
         <img src={cookie.image} alt={cookie.name} />
       </Link>

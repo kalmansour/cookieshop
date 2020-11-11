@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
+import { Link } from "react-router-dom";
 
 const theme = {
   light: {
@@ -14,6 +15,18 @@ const theme = {
     red: "#FF0000",
   },
 };
+
+export const Logo = styled(Link)`
+  padding: 0.75em;
+
+  img {
+    width: 8rem;
+  }
+`;
+
+const NavStyled = styled.nav`
+  background-color: ___CSS_0___;
+`;
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -53,7 +66,6 @@ const GoBackButton = styled.button`
 
 const ThemeButton = styled.button`
   font-size: 1em;
-  margin: 1.25em;
   padding: 0.25em 1em;
   border-radius: 3px;
   background-color: ${(props) => props.theme.backgroundColor};
