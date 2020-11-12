@@ -1,13 +1,10 @@
 import { useState } from "react";
 import cookies from "./cookies";
 import { Route, Switch } from "react-router";
-import { Link } from "react-router-dom";
-//Logo
-import lightLogo from "./light-logo.png";
-import darkLogo from "./dark-logo.png";
+// import { Link } from "react-router-dom";
 
 // Styles
-import { GlobalStyle, theme, ThemeButton, Logo } from "./styles";
+import { GlobalStyle, theme } from "./styles";
 import { ThemeProvider } from "styled-components";
 
 //Components
@@ -32,7 +29,7 @@ function App() {
     <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />
       <NavBar currentTheme={currentTheme} toggleTheme={toggleTheme} />
-      <Logo className="navbar-brand" to="/">
+      {/* <Logo className="navbar-brand" to="/">
         <img
           src={props.currentTheme === "light" ? lightLogo : darkLogo}
           width="50"
@@ -48,7 +45,7 @@ function App() {
       </Link>
       <ThemeButton className="nav-item" onClick={props.toggleTheme}>
         {currentTheme === "light" ? "Light" : "Dark"} Mode
-      </ThemeButton>
+      </ThemeButton> */}
       <Switch>
         <Route path="/cookies/:cookieSlug">
           <CookieDetail cookies={_cookies} deleteCookie={deleteCookie} />

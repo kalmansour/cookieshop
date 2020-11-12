@@ -3,10 +3,11 @@ import { DetailWrapper } from "../styles";
 import DeleteButton from "./buttons/DeleteButton";
 import { Redirect, useParams } from "react-router-dom";
 
-const CookieDetail = (props) => {
-  const cookieSlug = useParams().cookieSlug;
+const CookieDetail = ({ cookies, deleteCookie }) => {
+  // const cookieSlug = useParams().cookieSlug;
+  const { cookieSlug } = useParams();
 
-  const cookie = props.cookies.find((_cookie) => _cookie.slug === cookieSlug);
+  const cookie = cookies.find((_cookie) => _cookie.slug === cookieSlug);
 
   if (!cookie) return <Redirect to="/cookies" />;
 
@@ -17,7 +18,7 @@ const CookieDetail = (props) => {
         <img src={cookie.image} alt={cookie.name} />
         <p>{cookie.description}</p>
         <p>{cookie.price} KWD</p>
-        <DeleteButton cookieId={cookie.id} deleteCookie={props.deleteCookie} />
+        <DeleteButton cookieId={cookie.id} deleteCookie={deleteCookie} />
       </DetailWrapper>
     </>
   );

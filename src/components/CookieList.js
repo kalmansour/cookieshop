@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 //Components
-import CookieItem from "./CookieItems";
+import CookieItem from "./CookieItem";
 import SearchBar from "./SearchBar";
 
 // Styling

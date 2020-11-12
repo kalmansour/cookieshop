@@ -1,7 +1,14 @@
 import styled, { createGlobalStyle } from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
-const theme = {
+// Background and Theme Styles
+export const GlobalStyle = createGlobalStyle`
+  body {
+    color: ${({ theme }) => theme.mainColor};
+    background-color: ${({ theme }) => theme.backgroundColor}
+  }
+`;
+export const theme = {
   light: {
     mainColor: "mediumpurple", // main font color
     backgroundColor: "#f5fffa", // main background color
@@ -16,6 +23,7 @@ const theme = {
   },
 };
 
+//NavBar Styles
 export const Logo = styled(Link)`
   padding: 0.75em;
 
@@ -24,18 +32,21 @@ export const Logo = styled(Link)`
   }
 `;
 
-const NavStyled = styled.nav`
+export const NavStyled = styled.nav`
   background-color: ___CSS_0___;
 `;
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    color: ${(props) => props.theme.mainColor};
-    background-color: ${(props) => props.theme.backgroundColor}
+export const NavItem = styled(NavLink)`
+  padding: 0.25em 1em;
+  color: ${({ theme }) => theme.mainColor};
+
+  &.active {
+    background-color: pink;
   }
 `;
 
-const DetailWrapper = styled.div`
+// CookieDetail Component Styles
+export const DetailWrapper = styled.div`
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -51,40 +62,42 @@ const DetailWrapper = styled.div`
   }
 `;
 
+//Buttons Component Styles
 export const DeleteButtonStyled = styled.p`
-  color: ${(props) => props.theme.red};
+  color: ${({ theme }) => theme.red};
 `;
 
-const GoBackButton = styled.button`
+export const GoBackButton = styled.button`
   font-size: 1em;
   margin: 1.25em;
   padding: 0.25em 1em;
   border-radius: 3px;
-  background-color: ${(props) => props.theme.backgroundColor};
-  color: ${(props) => props.theme.mainColor};
+  background-color: ${({ theme }) => theme.backgroundColor};
+  color: ${({ theme }) => theme.mainColor};
 `;
 
-const ThemeButton = styled.button`
+export const ThemeButton = styled.button`
   font-size: 1em;
   padding: 0.25em 1em;
   border-radius: 3px;
-  background-color: ${(props) => props.theme.backgroundColor};
-  color: ${(props) => props.theme.mainColor};
+  background-color: ${({ theme }) => theme.backgroundColor};
+  color: ${({ theme }) => theme.mainColor};
 `;
 
-const Title = styled.h1`
+//Home Component Styles
+export const Title = styled.h1`
   text-align: center;
   background-color: #f2e596;
   font-family: Arial, Helvetica, sans-serif;
 `;
 
-const Description = styled.h4`
+export const Description = styled.h4`
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   font-style: italic;
 `;
 
-const ShopImage = styled.img`
+export const ShopImage = styled.img`
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -93,14 +106,23 @@ const ShopImage = styled.img`
   border-color: ${(props) => props.theme.mainColor};
 `;
 
-const ListWrapper = styled.div`
+export const ItemsHeader = styled.h2`
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  /* color: purple; */
+  background-color: #f2e596;
+`;
+
+//CookieList Component Styles
+export const ListWrapper = styled.div`
   align-items: center;
   justify-content: center;
   display: flex;
   flex-wrap: wrap;
 `;
 
-const CookieWrapper = styled.div`
+//CookieItems Component Styles
+export const CookieWrapper = styled.div`
   margin: 20px;
 
   img {
@@ -108,43 +130,37 @@ const CookieWrapper = styled.div`
     height: 200px;
     object-fit: cover;
     border: thick solid;
-    border-color: ${(props) => props.theme.mainColor};
+    border-color: ${({ theme }) => theme.mainColor};
   }
 
   p {
     text-align: center;
 
     &.cookie-price {
-      color: ${(props) => props.theme.pink};
+      color: ${({ theme }) => theme.pink};
     }
   }
 `;
 
-const ItemsHeader = styled.h2`
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  /* color: purple; */
-  background-color: #f2e596;
-`;
-
-const SearchBarStyled = styled.input`
+// SearchBar Component Styles
+export const SearchBarStyled = styled.input`
   padding: 0.5rem;
   margin: 1rem auto;
   display: block;
   width: 40%;
 `;
 
-export {
-  GlobalStyle,
-  Title,
-  Description,
-  ShopImage,
-  ListWrapper,
-  CookieWrapper,
-  ItemsHeader,
-  theme,
-  ThemeButton,
-  SearchBarStyled,
-  DetailWrapper,
-  GoBackButton,
-};
+// export {
+//   GlobalStyle,
+//   Title,
+//   Description,
+//   ShopImage,
+//   ListWrapper,
+//   CookieWrapper,
+//   ItemsHeader,
+//   theme,
+//   ThemeButton,
+//   SearchBarStyled,
+//   DetailWrapper,
+//   GoBackButton,
+// };
