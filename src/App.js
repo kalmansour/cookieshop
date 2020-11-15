@@ -17,6 +17,10 @@ function App() {
   const [currentTheme, setCurrentTheme] = useState("light");
   const [_cookies, setCookies] = useState(cookies);
 
+  const createCookie = (newCookie) => {
+    setCookies([..._cookies, newCookie]);
+  };
+
   const deleteCookie = (cookieId) => {
     const updatedCookies = _cookies.filter((cookie) => cookie.id !== cookieId);
     setCookies(updatedCookies);
@@ -29,29 +33,16 @@ function App() {
     <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />
       <NavBar currentTheme={currentTheme} toggleTheme={toggleTheme} />
-      {/* <Logo className="navbar-brand" to="/">
-        <img
-          src={props.currentTheme === "light" ? lightLogo : darkLogo}
-          width="50"
-          alt="logo"
-        />
-      </Logo>
-      <Link
-        className="nav-item"
-        to="/cookies"
-        style={{ margin: 10, float: "right" }}
-      >
-        Cookies
-      </Link>
-      <ThemeButton className="nav-item" onClick={props.toggleTheme}>
-        {currentTheme === "light" ? "Light" : "Dark"} Mode
-      </ThemeButton> */}
       <Switch>
         <Route path="/cookies/:cookieSlug">
           <CookieDetail cookies={_cookies} deleteCookie={deleteCookie} />
         </Route>
         <Route path="/cookies">
-          <CookieList cookies={_cookies} deleteCookie={deleteCookie} />
+          <CookieList
+            cookies={_cookies}
+            createCookie={createCookie}
+            deleteCookie={deleteCookie}
+          />
         </Route>
         <Route path="/">
           <Home />

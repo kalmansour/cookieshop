@@ -23,6 +23,16 @@ export const theme = {
   },
 };
 
+export const CreateButtonStyled = styled.button`
+  color: ${(props) => props.theme.backgroundColor};
+  background-color: ${(props) => props.theme.mainColor};
+
+  &:hover {
+    color: ${(props) => props.theme.mainColor};
+    background-color: ${(props) => props.theme.backgroundColor};
+  }
+`;
+
 //NavBar Styles
 export const Logo = styled(Link)`
   padding: 0.75em;
@@ -102,15 +112,9 @@ export const ShopImage = styled.img`
   margin-left: auto;
   margin-right: auto;
   width: 40%;
+  /* padding-bottom: 10px; */
   border: thick solid;
   border-color: ${(props) => props.theme.mainColor};
-`;
-
-export const ItemsHeader = styled.h2`
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-  /* color: purple; */
-  background-color: #f2e596;
 `;
 
 //CookieList Component Styles
@@ -157,7 +161,6 @@ export const SearchBarStyled = styled.input`
 //   ShopImage,
 //   ListWrapper,
 //   CookieWrapper,
-//   ItemsHeader,
 //   theme,
 //   ThemeButton,
 //   SearchBarStyled,
