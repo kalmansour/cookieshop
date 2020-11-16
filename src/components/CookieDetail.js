@@ -14,7 +14,7 @@ const CookieDetail = () => {
   const { cookieSlug } = useParams();
 
   const cookie = cookieStore.cookies.find(
-    (_cookie) => _cookie.slug === cookieSlug
+    (cookie) => cookie.slug === cookieSlug
   );
 
   if (!cookie) return <Redirect to="/cookies" />;
