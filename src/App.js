@@ -1,7 +1,5 @@
 import { useState } from "react";
-import cookies from "./cookies";
 import { Route, Switch } from "react-router";
-// import { Link } from "react-router-dom";
 
 // Styles
 import { GlobalStyle, theme } from "./styles";
@@ -15,16 +13,6 @@ import NavBar from "./components/NavBar";
 
 function App() {
   const [currentTheme, setCurrentTheme] = useState("light");
-  const [_cookies, setCookies] = useState(cookies);
-
-  const createCookie = (newCookie) => {
-    setCookies([..._cookies, newCookie]);
-  };
-
-  const deleteCookie = (cookieId) => {
-    const updatedCookies = _cookies.filter((cookie) => cookie.id !== cookieId);
-    setCookies(updatedCookies);
-  };
 
   const toggleTheme = () =>
     setCurrentTheme(currentTheme === "light" ? "dark" : "light");
@@ -35,14 +23,10 @@ function App() {
       <NavBar currentTheme={currentTheme} toggleTheme={toggleTheme} />
       <Switch>
         <Route path="/cookies/:cookieSlug">
-          <CookieDetail cookies={_cookies} deleteCookie={deleteCookie} />
+          <CookieDetail />
         </Route>
         <Route path="/cookies">
-          <CookieList
-            cookies={_cookies}
-            createCookie={createCookie}
-            deleteCookie={deleteCookie}
-          />
+          <CookieList />
         </Route>
         <Route path="/">
           <Home />

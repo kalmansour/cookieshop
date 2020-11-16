@@ -2,7 +2,7 @@ import { CookieWrapper } from "../styles";
 import DeleteButton from "./buttons/DeleteButton";
 import { Link } from "react-router-dom";
 
-const CookieItem = ({ cookie, deleteCookie }) => {
+const CookieItem = ({ cookie }) => {
   // // const cookie = props.cookie;
   // const { cookie } = props;
 
@@ -13,10 +13,7 @@ const CookieItem = ({ cookie, deleteCookie }) => {
       </Link>
       <p>{cookie.name}</p>
       <p className="cookie-price">{cookie.price} KWD</p>
-      <DeleteButton
-        cookieId={cookie.id}
-        deleteCookie={deleteCookie}
-      ></DeleteButton>
+      <DeleteButton cookieId={cookie.id}></DeleteButton>
     </CookieWrapper>
   );
 };

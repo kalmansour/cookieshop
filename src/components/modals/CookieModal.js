@@ -1,5 +1,6 @@
 import Modal from "react-modal";
 import { useState } from "react";
+import cookieStore from "../../stores/cookieStore";
 
 //styles
 import { CreateButtonStyled } from "../../styles";
@@ -18,7 +19,7 @@ const CookieModal = ({ isOpen, closeModal, createCookie }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    createCookie(cookie);
+    cookieStore.createCookie(cookie);
     closeModal();
   };
 
