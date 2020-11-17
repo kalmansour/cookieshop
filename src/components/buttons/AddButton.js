@@ -3,7 +3,7 @@ import { BsPlusCircle } from "react-icons/bs";
 
 import CookieModal from "../modals/CookieModal";
 
-const AddButton = ({ createCookie }) => {
+const AddButton = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const closeModal = () => setIsOpen(false);
@@ -11,11 +11,7 @@ const AddButton = ({ createCookie }) => {
   return (
     <>
       <BsPlusCircle className="float-right" size="2em" onClick={openModal} />
-      <CookieModal
-        isOpen={isOpen}
-        closeModal={closeModal}
-        createCookie={createCookie}
-      />
+      <CookieModal isOpen={isOpen} closeModal={closeModal} />
     </>
   );
 };

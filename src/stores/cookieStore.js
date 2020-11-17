@@ -10,6 +10,7 @@ class CookieStore {
       cookies: observable,
       createCookie: action,
       deleteCookie: action,
+      updateCookie: action,
     });
   }
 
@@ -17,6 +18,14 @@ class CookieStore {
     newCookie.id = this.cookies[this.cookies.length - 1].id + 1;
     newCookie.slug = slugify(newCookie.name);
     this.cookies.push(newCookie);
+  };
+
+  updateCookie = (updatedCookie) => {
+    const cookie = this.cookies.find(
+      (cookie) => cookie.id === updatedCookie.id
+    );
+    for (const key in cookie) cookie[key] = updatedCookie[key];
+    cookie.slug = slugify(cookie.name);
   };
 
   deleteCookie = (cookieId) => {

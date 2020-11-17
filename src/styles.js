@@ -73,6 +73,10 @@ export const DetailWrapper = styled.div`
 `;
 
 //Buttons Component Styles
+export const UpdateButtonStyled = styled.p`
+  color: ${(props) => props.theme.pink};
+`;
+
 export const DeleteButtonStyled = styled.p`
   color: ${({ theme }) => theme.red};
 `;

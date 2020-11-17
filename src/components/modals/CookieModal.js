@@ -1,17 +1,17 @@
-import Modal from "react-modal";
 import { useState } from "react";
+import Modal from "react-modal";
+import { CreateButtonStyled } from "../../styles";
 import cookieStore from "../../stores/cookieStore";
 
-//styles
-import { CreateButtonStyled } from "../../styles";
-
-const CookieModal = ({ isOpen, closeModal, createCookie }) => {
-  const [cookie, setCookie] = useState({
-    name: "",
-    price: 0,
-    description: "",
-    image: "",
-  });
+const CookieModal = ({ isOpen, closeModal, oldCookie }) => {
+  const [cookie, setCookie] = useState(
+    oldCookie ?? {
+      name: "",
+      price: 0,
+      description: "",
+      image: "",
+    }
+  );
 
   const handleChange = (event) => {
     setCookie({ ...cookie, [event.target.name]: event.target.value });
@@ -19,7 +19,7 @@ const CookieModal = ({ isOpen, closeModal, createCookie }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    cookieStore.createCookie(cookie);
+    cookieStore[oldCookie ? "updateCookie" : "createCookie"](cookie);
     closeModal();
   };
 
@@ -34,6 +34,7 @@ const CookieModal = ({ isOpen, closeModal, createCookie }) => {
           <div className="col-6">
             <label>Name</label>
             <input
+              value={cookie.name}
               name="name"
               onChange={handleChange}
               type="text"
@@ -43,6 +44,7 @@ const CookieModal = ({ isOpen, closeModal, createCookie }) => {
           <div className="col-6">
             <label>Price</label>
             <input
+              value={cookie.price}
               name="price"
               onChange={handleChange}
               type="number"
@@ -54,6 +56,7 @@ const CookieModal = ({ isOpen, closeModal, createCookie }) => {
         <div className="form-group">
           <label>Description</label>
           <input
+            value={cookie.description}
             name="description"
             onChange={handleChange}
             type="text"
@@ -63,6 +66,7 @@ const CookieModal = ({ isOpen, closeModal, createCookie }) => {
         <div className="form-group">
           <label>Image</label>
           <input
+            value={cookie.image}
             name="image"
             onChange={handleChange}
             type="text"
@@ -70,7 +74,7 @@ const CookieModal = ({ isOpen, closeModal, createCookie }) => {
           />
         </div>
         <CreateButtonStyled type="submit" className="btn float-right">
-          Create
+          {oldCookie ? "Update" : "Create"}
         </CreateButtonStyled>
       </form>
     </Modal>
