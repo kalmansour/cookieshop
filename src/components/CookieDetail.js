@@ -8,6 +8,8 @@ import cookieStore from "../stores/cookieStore";
 import { DetailWrapper } from "../styles";
 
 //Components
+import UpdateButton from "./buttons/UpdateButton";
+
 import DeleteButton from "./buttons/DeleteButton";
 
 const CookieDetail = () => {
@@ -26,7 +28,8 @@ const CookieDetail = () => {
         <img src={cookie.image} alt={cookie.name} />
         <p>{cookie.description}</p>
         <p>{cookie.price} KWD</p>
-        <DeleteButton cookieId={cookie.id} />
+        <UpdateButton cookie={cookie} />
+        <DeleteButton cookieId={cookie} />
       </DetailWrapper>
     </>
   );
