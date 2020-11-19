@@ -1,18 +1,25 @@
 import { action, makeObservable, observable } from "mobx";
 import slugify from "react-slugify";
-import cookies from "../cookies";
+import axios from "axios";
 
 class CookieStore {
-  cookies = cookies;
+  cookies = [];
 
   constructor() {
     makeObservable(this, {
       cookies: observable,
+      fetchCookies: action,
       createCookie: action,
       deleteCookie: action,
       updateCookie: action,
     });
   }
+
+  fetchCookies = async () => {
+    const response = await axios.get("http://localhost:8000/cookies");
+    console.log("fetchCookies -> response", response);
+    this.cookies = response.data;
+  };
 
   createCookie = (newCookie) => {
     newCookie.id = this.cookies[this.cookies.length - 1].id + 1;
@@ -34,4 +41,6 @@ class CookieStore {
 }
 
 const cookieStore = new CookieStore();
+cookieStore.fetchCookies();
+
 export default cookieStore;
