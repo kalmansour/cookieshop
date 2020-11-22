@@ -24,10 +24,19 @@ class CookieStore {
     }
   };
 
-  createCookie = (newCookie) => {
-    newCookie.id = this.cookies[this.cookies.length - 1].id + 1;
-    newCookie.slug = slugify(newCookie.name);
-    this.cookies.push(newCookie);
+  createCookie = async (newCookie) => {
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/cookies",
+        newCookie
+      );
+      this.cookies.push(response.data);
+    } catch (error) {
+      console.log("CookieStore -> createCookie -> error", error);
+    }
+    // newCookie.id = this.cookies[this.cookies.length - 1].id + 1;
+    // newCookie.slug = slugify(newCookie.name);
+    // this.cookies.push(newCookie);
   };
 
   updateCookie = (updatedCookie) => {
@@ -39,12 +48,10 @@ class CookieStore {
   };
 
   deleteCookie = async (cookieId) => {
-    // this.cookies = this.cookies.filter((cookie) => cookie.id !== cookieId);
     try {
-    } catch (error) {
       await axios.delete(`http://localhost:8000/cookies/${cookieId}`);
       this.cookies = this.cookies.filter((cookie) => cookie.id !== +cookieId);
-
+    } catch (error) {
       console.log("CookieStore -> deleteCookie -> error", error);
     }
   };

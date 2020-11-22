@@ -9,6 +9,7 @@ import { ListWrapper } from "../styles";
 
 //Components
 import CookieItem from "./CookieItem";
+import AddButton from "./buttons/AddButton";
 import SearchBar from "./SearchBar";
 
 const CookieList = () => {
@@ -23,6 +24,7 @@ const CookieList = () => {
 
   return (
     <>
+      <AddButton />
       <SearchBar setQuery={setQuery} />
       <ListWrapper>{cookieList}</ListWrapper>
     </>
