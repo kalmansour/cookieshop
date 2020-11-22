@@ -34,17 +34,22 @@ class CookieStore {
     } catch (error) {
       console.log("CookieStore -> createCookie -> error", error);
     }
-    // newCookie.id = this.cookies[this.cookies.length - 1].id + 1;
-    // newCookie.slug = slugify(newCookie.name);
-    // this.cookies.push(newCookie);
   };
 
-  updateCookie = (updatedCookie) => {
-    const cookie = this.cookies.find(
-      (cookie) => cookie.id === updatedCookie.id
-    );
-    for (const key in cookie) cookie[key] = updatedCookie[key];
-    cookie.slug = slugify(cookie.name);
+  updateCookie = async (updatedCookie) => {
+    try {
+      await axios.put(
+        `http://localhost:8000/cookies/${updatedCookie.id}`,
+        updatedCookie
+      );
+      const cookie = this.cookies.find(
+        (cookie) => cookie.id === updatedCookie.id
+      );
+      for (const key in cookie) cookie[key] = updatedCookie[key];
+      cookie.slug = slugify(cookie.name);
+    } catch (error) {
+      console.log("CookieStore -> updateCookie -> error", error);
+    }
   };
 
   deleteCookie = async (cookieId) => {
