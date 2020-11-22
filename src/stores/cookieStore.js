@@ -16,9 +16,12 @@ class CookieStore {
   }
 
   fetchCookies = async () => {
-    const response = await axios.get("http://localhost:8000/cookies");
-    console.log("fetchCookies -> response", response);
-    this.cookies = response.data;
+    try {
+      const response = await axios.get("http://localhost:8000/cookies");
+      this.cookies = response.data;
+    } catch (error) {
+      console.error("CookieStore -> fetchCookies -> error", error);
+    }
   };
 
   createCookie = (newCookie) => {
@@ -35,8 +38,15 @@ class CookieStore {
     cookie.slug = slugify(cookie.name);
   };
 
-  deleteCookie = (cookieId) => {
-    this.cookies = this.cookies.filter((cookie) => cookie.id !== cookieId);
+  deleteCookie = async (cookieId) => {
+    // this.cookies = this.cookies.filter((cookie) => cookie.id !== cookieId);
+    try {
+    } catch (error) {
+      await axios.delete(`http://localhost:8000/cookies/${cookieId}`);
+      this.cookies = this.cookies.filter((cookie) => cookie.id !== +cookieId);
+
+      console.log("CookieStore -> deleteCookie -> error", error);
+    }
   };
 }
 
