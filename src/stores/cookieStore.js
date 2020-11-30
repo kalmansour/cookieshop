@@ -26,9 +26,11 @@ class CookieStore {
 
   createCookie = async (newCookie) => {
     try {
+      const formData = new FormData();
+      for (const key in newCookie) formData.append(key, newCookie[key]);
       const response = await axios.post(
         "http://localhost:8000/cookies",
-        newCookie
+        formData
       );
       this.cookies.push(response.data);
     } catch (error) {
@@ -38,9 +40,11 @@ class CookieStore {
 
   updateCookie = async (updatedCookie) => {
     try {
+      const formData = new FormData();
+      for (const key in updatedCookie) formData.append(key, updatedCookie[key]);
       await axios.put(
         `http://localhost:8000/cookies/${updatedCookie.id}`,
-        updatedCookie
+        formData
       );
       const cookie = this.cookies.find(
         (cookie) => cookie.id === updatedCookie.id

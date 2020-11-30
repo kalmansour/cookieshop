@@ -23,6 +23,10 @@ const CookieModal = ({ isOpen, closeModal, oldCookie }) => {
     closeModal();
   };
 
+  const hangleImage = (event) => {
+    setCookie({ ...cookie, image: event.target.files[0] });
+  };
+
   return (
     <Modal
       isOpen={isOpen}
@@ -66,11 +70,11 @@ const CookieModal = ({ isOpen, closeModal, oldCookie }) => {
         <div className="form-group">
           <label>Image</label>
           <input
-            value={cookie.image}
+            required
             name="image"
-            onChange={handleChange}
-            type="text"
+            type="file"
             className="form-control"
+            onChange={hangleImage}
           />
         </div>
         <CreateButtonStyled type="submit" className="btn float-right">
