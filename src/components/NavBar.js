@@ -17,6 +17,15 @@ const NavBar = ({ currentTheme, toggleTheme }) => {
       <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
         <ul className="navbar-nav ml-auto">
           <li className="nav-item active">
+            <NavItem
+              className="nav-item"
+              to="/bakeries"
+              style={{ padding: 10 }}
+            >
+              Bakeries
+            </NavItem>
+          </li>
+          <li className="nav-item active">
             <NavItem className="nav-item" to="/cookies" style={{ padding: 10 }}>
               Cookies
             </NavItem>

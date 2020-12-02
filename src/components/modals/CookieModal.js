@@ -3,7 +3,7 @@ import Modal from "react-modal";
 import { CreateButtonStyled } from "../../styles";
 import cookieStore from "../../stores/cookieStore";
 
-const CookieModal = ({ isOpen, closeModal, oldCookie }) => {
+const CookieModal = ({ bakery, isOpen, closeModal, oldCookie }) => {
   const [cookie, setCookie] = useState(
     oldCookie ?? {
       name: "",
@@ -19,7 +19,7 @@ const CookieModal = ({ isOpen, closeModal, oldCookie }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    cookieStore[oldCookie ? "updateCookie" : "createCookie"](cookie);
+    cookieStore[oldCookie ? "updateCookie" : "createCookie"](cookie, bakery);
     closeModal();
   };
 

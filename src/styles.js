@@ -23,6 +23,24 @@ export const theme = {
   },
 };
 
+//Bakery Styles
+export const BakeryItemStyled = styled.div`
+  margin: 20px;
+  margin: 20px;
+
+  img {
+    width: 20em;
+    height: 200px;
+    object-fit: cover;
+    border: thick solid;
+    border-color: ${({ theme }) => theme.mainColor};
+  }
+
+  h4 {
+    text-align: center;
+  }
+`;
+
 export const CreateButtonStyled = styled.button`
   color: ${(props) => props.theme.backgroundColor};
   background-color: ${(props) => props.theme.mainColor};
@@ -121,7 +139,7 @@ export const ShopImage = styled.img`
   border-color: ${(props) => props.theme.mainColor};
 `;
 
-//CookieList Component Styles
+//BakeryList && CookieList Styles
 export const ListWrapper = styled.div`
   align-items: center;
   justify-content: center;

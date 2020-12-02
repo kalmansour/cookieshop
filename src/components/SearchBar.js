@@ -1,10 +1,10 @@
 // Styling
 import { SearchBarStyled } from "../styles";
 
-const SearchBar = ({ setQuery }) => {
+const SearchBar = ({ setQuery, placeholder }) => {
   return (
     <SearchBarStyled
-      placeholder="Search for a cookie name..."
+      placeholder={placeholder}
       onChange={(event) => setQuery(event.target.value)}
     />
   );

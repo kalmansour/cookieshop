@@ -4,10 +4,12 @@ import axios from "axios";
 
 class CookieStore {
   cookies = [];
+  loading = true;
 
   constructor() {
     makeObservable(this, {
       cookies: observable,
+      loading: observable,
       fetchCookies: action,
       createCookie: action,
       deleteCookie: action,
@@ -15,24 +17,29 @@ class CookieStore {
     });
   }
 
+  getCookieById = (cookieId) =>
+    this.cookies.find((cookie) => cookie.id === cookieId);
+
   fetchCookies = async () => {
     try {
       const response = await axios.get("http://localhost:8000/cookies");
       this.cookies = response.data;
+      this.loading = false;
     } catch (error) {
       console.error("CookieStore -> fetchCookies -> error", error);
     }
   };
 
-  createCookie = async (newCookie) => {
+  createCookie = async (newCookie, bakery) => {
     try {
       const formData = new FormData();
       for (const key in newCookie) formData.append(key, newCookie[key]);
       const response = await axios.post(
-        "http://localhost:8000/cookies",
+        `http://localhost:8000/bakeries/${bakery.id}/cookies`,
         formData
       );
       this.cookies.push(response.data);
+      bakery.cookies.push({ id: response.data.id });
     } catch (error) {
       console.log("CookieStore -> createCookie -> error", error);
     }
