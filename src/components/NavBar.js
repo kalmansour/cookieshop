@@ -1,6 +1,9 @@
 import lightLogo from "../light-logo.png";
 import darkLogo from "../dark-logo.png";
 
+//Components
+import SignupButton from "./buttons/SignupButton";
+
 // Styles
 import { ThemeButton, NavStyled, Logo, NavItem } from "../styles";
 
@@ -31,6 +34,7 @@ const NavBar = ({ currentTheme, toggleTheme }) => {
             </NavItem>
           </li>
           <li className="nav-item">
+            <SignupButton />
             <ThemeButton className="nav-item" onClick={toggleTheme}>
               {currentTheme === "light" ? "Dark" : "Light"} Mode
             </ThemeButton>

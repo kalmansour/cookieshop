@@ -5,11 +5,13 @@ import { observer } from "mobx-react";
 import bakeryStore from "../stores/bakeryStore";
 import cookieStore from "../stores/cookieStore";
 
-//Styles
-import { DetailWrapper } from "../styles";
+//Components
 import CookieList from "./CookieList";
 import UpdateButton from "./buttons/UpdateButton";
 import AddButton from "./buttons/AddButton";
+
+//Styles
+import { DetailWrapper } from "../styles";
 
 const BakeryDetail = () => {
   const { bakerySlug } = useParams();
