@@ -3,10 +3,11 @@ import instance from "./instance";
 import decode from "jwt-decode";
 
 class AuthStore {
-  user = null;
   constructor() {
     makeAutoObservable(this);
   }
+  // If this.user has a a value, means that the user is logged else they're not :)
+  user = null;
 
   signup = async (userData) => {
     try {
