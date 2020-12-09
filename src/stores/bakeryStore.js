@@ -1,4 +1,4 @@
-import { action, makeAutoObservable, observable } from "mobx";
+import { action, makeObservable, observable } from "mobx";
 import axios from "axios";
 
 class BakeryStore {
@@ -6,10 +6,11 @@ class BakeryStore {
   loading = true;
 
   constructor() {
-    makeAutoObservable(this, {
+    makeObservable(this, {
       bakeries: observable,
       loading: observable,
       fetchBakeries: action,
+      createBakery: action,
     });
   }
 
@@ -20,6 +21,20 @@ class BakeryStore {
       this.loading = false;
     } catch (error) {
       console.error("BakeryStore -> fetchBakeries -> error", error);
+    }
+  };
+
+  createBakery = async (newBakery) => {
+    try {
+      const formData = new FormData();
+      for (const key in newBakery) formData.append(key, newBakery[key]);
+      const response = await axios.post(
+        "http://localhost:8000/bakeries",
+        formData
+      );
+      this.bakeries.push(response.data);
+    } catch (error) {
+      console.log("BakeryStore -> createBakery -> error", error);
     }
   };
 }

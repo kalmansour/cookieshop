@@ -6,10 +6,10 @@ import { ListWrapper } from "../styles";
 
 //Components
 import CookieItem from "./CookieItem";
-import AddButton from "./buttons/AddButton";
+// import AddButton from "./buttons/AddButton";
 import SearchBar from "./SearchBar";
 
-const CookieList = ({ cookies }) => {
+const CookieList = ({ cookies = [] }) => {
   const [query, setQuery] = useState("");
 
   console.log(cookies);
@@ -23,7 +23,7 @@ const CookieList = ({ cookies }) => {
 
   return (
     <>
-      <AddButton />
+      {/* <AddButton /> */}
       <SearchBar placeholder="search for cookie name" setQuery={setQuery} />
       <ListWrapper>{cookieList}</ListWrapper>
     </>

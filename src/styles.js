@@ -52,6 +52,11 @@ export const CreateButtonStyled = styled.button`
 `;
 
 //NavBar Styles
+
+export const UsernameStyled = styled.p`
+  padding: 0.25 em 1 em;
+`;
+
 export const Logo = styled(Link)`
   padding: 0.75em;
 

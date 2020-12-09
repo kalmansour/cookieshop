@@ -12,6 +12,7 @@ import AddButton from "./buttons/AddButton";
 
 //Styles
 import { DetailWrapper } from "../styles";
+import authStore from "../stores/authStore";
 
 const BakeryDetail = () => {
   const { bakerySlug } = useParams();
@@ -37,7 +38,7 @@ const BakeryDetail = () => {
       </div>
       <div className="col-12">
         <CookieList cookies={cookies} />
-        <AddButton bakery={bakery} />
+        {authStore.user && <AddButton bakery={bakery} />}
       </div>
     </div>
   );
