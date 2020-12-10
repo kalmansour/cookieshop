@@ -5,6 +5,7 @@ import bakeryStore from "../stores/bakeryStore";
 import { useState } from "react";
 import SearchBar from "./SearchBar";
 import AddBakeryButton from "./buttons/AddBakeryButton";
+import authStore from "../stores/authStore";
 
 const BakeryList = () => {
   const [query, setQuery] = useState("");
@@ -15,7 +16,7 @@ const BakeryList = () => {
   return (
     <div className="container">
       <Title>Bakeries</Title>
-      <AddBakeryButton />
+      {authStore.user && <AddBakeryButton />}
       <SearchBar
         placeholder="Search for a bakery name..."
         setQuery={setQuery}
