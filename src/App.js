@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { observer } from "mobx-react";
+// import { observer } from "mobx-react";
 
 // Styles
 import { GlobalStyle, theme } from "./styles";
@@ -33,4 +33,4 @@ function App() {
   );
 }
 
-export default observer(App);
+export default App;

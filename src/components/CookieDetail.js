@@ -1,8 +1,5 @@
 import { Redirect, useParams } from "react-router-dom";
-import { observer } from "mobx-react";
-
-//Stores
-import cookieStore from "../stores/cookieStore";
+import { useSelector } from "react-redux";
 
 //Styles
 import { DetailWrapper } from "../styles";
@@ -14,10 +11,8 @@ import DeleteButton from "./buttons/DeleteButton";
 
 const CookieDetail = () => {
   const { cookieSlug } = useParams();
-
-  const cookie = cookieStore.cookies.find(
-    (cookie) => cookie.slug === cookieSlug
-  );
+  const cookies = useSelector((state) => state.cookies);
+  const cookie = cookies.find((cookie) => cookie.slug === cookieSlug);
 
   if (!cookie) return <Redirect to="/cookies" />;
 
@@ -35,4 +30,4 @@ const CookieDetail = () => {
   );
 };
 
-export default observer(CookieDetail);
+export default CookieDetail;

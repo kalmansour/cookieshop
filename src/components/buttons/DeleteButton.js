@@ -1,11 +1,16 @@
-import cookieStore from "../../stores/cookieStore";
+import { useDispatch } from "react-redux";
+import { deleteCookie } from "../../store/action";
+
+// Styles
 import { DeleteButtonStyled } from "../../styles";
 
 const DeleteButton = ({ cookieId }) => {
-  const handleDelete = () => {
-    cookieStore.deleteCookie(cookieId);
-  };
-  return <DeleteButtonStyled onClick={handleDelete}>Delete</DeleteButtonStyled>;
+  const dispatch = useDispatch();
+  return (
+    <DeleteButtonStyled onClick={() => dispatch(deleteCookie())}>
+      Delete
+    </DeleteButtonStyled>
+  );
 };
 
 export default DeleteButton;

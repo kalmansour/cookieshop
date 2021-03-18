@@ -1,18 +1,17 @@
 import { useState } from "react";
-import { observer } from "mobx-react";
+import { useSelector } from "react-redux";
 
 // Styling
 import { ListWrapper } from "../styles";
 
 //Components
 import CookieItem from "./CookieItem";
-// import AddButton from "./buttons/AddButton";
 import SearchBar from "./SearchBar";
 
-const CookieList = ({ cookies = [] }) => {
-  const [query, setQuery] = useState("");
+const CookieList = () => {
+  const cookies = useSelector((state) => state.cookies);
 
-  console.log(cookies);
+  const [query, setQuery] = useState("");
 
   const filteredCookies = cookies.filter((cookie) =>
     cookie.name.toLowerCase().includes(query.toLowerCase())
@@ -30,4 +29,4 @@ const CookieList = ({ cookies = [] }) => {
   );
 };
 
-export default observer(CookieList);
+export default CookieList;
