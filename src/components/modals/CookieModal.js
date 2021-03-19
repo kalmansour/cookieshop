@@ -2,7 +2,7 @@ import { useState } from "react";
 import Modal from "react-modal";
 import { CreateButtonStyled } from "../../styles";
 import { useDispatch } from "react-redux";
-import { createCookie } from "../../store/action";
+import { createCookie, updateCookie } from "../../store/actions/cookieActions";
 import { useHistory } from "react-router-dom";
 
 const CookieModal = ({ bakery, isOpen, closeModal, oldCookie }) => {
@@ -31,7 +31,7 @@ const CookieModal = ({ bakery, isOpen, closeModal, oldCookie }) => {
     // closeModal();
   };
 
-  const hangleImage = (event) => {
+  const handleImage = (event) => {
     setCookie({ ...cookie, image: event.target.files[0] });
   };
 
@@ -82,7 +82,7 @@ const CookieModal = ({ bakery, isOpen, closeModal, oldCookie }) => {
             name="image"
             type="file"
             className="form-control"
-            onChange={hangleImage}
+            onChange={handleImage}
           />
         </div>
         <CreateButtonStyled type="submit" className="btn float-right">

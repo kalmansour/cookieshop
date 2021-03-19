@@ -1,5 +1,6 @@
 import { useState } from "react";
 // import { observer } from "mobx-react";
+import instance from "./store/instance";
 
 // Styles
 import { GlobalStyle, theme } from "./styles";
@@ -10,9 +11,17 @@ import Routes from "./components/Routes";
 import NavBar from "./components/NavBar";
 
 //Stores
-// import cookieStore from "./stores/cookieStore";
 import bakeryStore from "./stores/bakeryStore";
 import cookieStore from "./stores/cookieStore";
+
+const fetchCookies = async () => {
+  try {
+    const response = await instance.get("/cookies");
+    this.cookies = response.data;
+  } catch (error) {
+    console.log("CookieStore -> fetchCookies -> error", error);
+  }
+};
 
 function App() {
   const [currentTheme, setCurrentTheme] = useState("light");
@@ -33,4 +42,5 @@ function App() {
   );
 }
 
+fetchCookies();
 export default App;

@@ -5,17 +5,8 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { createStore } from "redux";
 import { Provider } from "react-redux";
-import reducer from "./store/reducer";
-import { fetchCookies } from "./store/action";
-
-const store = createStore(
-  reducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
-
-store.dispatch(fetchCookies());
+import store from "./store/index";
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,12 +1,16 @@
-import cookiesData from "../cookies";
 import slugify from "react-slugify";
 
 const initialState = {
-  cookies: cookiesData,
+  cookies: [],
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case "FETCH_COOKIES":
+      return {
+        ...state,
+        cookies: action.payload,
+      };
     case "CREATE_COOKIE":
       const { newCookie } = action.payload;
       newCookie.id = state.cookies[state.cookies.length - 1].id + 1;

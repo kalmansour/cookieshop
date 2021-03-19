@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { deleteCookie } from "../../store/action";
+import { deleteCookie } from "../../store/actions/cookieActions";
 
 // Styles
 import { DeleteButtonStyled } from "../../styles";

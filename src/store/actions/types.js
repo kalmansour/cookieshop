@@ -1,0 +1,4 @@
+// ACTION TYPES
+export const CREATE_COOKIE = "CREATE_COOKIE";
+export const DELETE_COOKIE = "DELETE_COOKIE";
+export const UPDATE_COOKIE = "UPDATE_COOKIE";
