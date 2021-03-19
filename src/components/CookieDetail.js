@@ -11,7 +11,7 @@ import DeleteButton from "./buttons/DeleteButton";
 
 const CookieDetail = () => {
   const { cookieSlug } = useParams();
-  const cookies = useSelector((state) => state.cookies);
+  const cookies = useSelector((state) => state.cookies.cookies);
   const cookie = cookies.find((cookie) => cookie.slug === cookieSlug);
 
   if (!cookie) return <Redirect to="/cookies" />;

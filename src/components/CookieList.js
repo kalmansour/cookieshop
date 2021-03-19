@@ -9,7 +9,7 @@ import CookieItem from "./CookieItem";
 import SearchBar from "./SearchBar";
 
 const CookieList = () => {
-  const cookies = useSelector((state) => state.cookies);
+  const cookies = useSelector((state) => state.cookies.cookies);
 
   const [query, setQuery] = useState("");
 

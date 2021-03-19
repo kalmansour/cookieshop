@@ -1,9 +1,14 @@
+// React
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 import Modal from "react-modal";
-import { CreateButtonStyled } from "../../styles";
+
+// Redux
 import { useDispatch } from "react-redux";
 import { createCookie, updateCookie } from "../../store/actions/cookieActions";
-import { useHistory } from "react-router-dom";
+
+// Styles
+import { CreateButtonStyled } from "../../styles";
 
 const CookieModal = ({ bakery, isOpen, closeModal, oldCookie }) => {
   const dispatch = useDispatch();

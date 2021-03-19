@@ -1,8 +1,8 @@
 import { Redirect, useParams } from "react-router";
 import { observer } from "mobx-react";
+import { useSelector } from "react-redux";
 
 //Stores
-import bakeryStore from "../stores/bakeryStore";
 import cookieStore from "../stores/cookieStore";
 
 //Components
@@ -16,10 +16,10 @@ import authStore from "../stores/authStore";
 
 const BakeryDetail = () => {
   const { bakerySlug } = useParams();
+  const bakeries = useSelector((state) => state.bakeries);
+  // const cookies = useSelector((state) => state.cookies);
 
-  const bakery = bakeryStore.bakeries.find(
-    (bakery) => bakery.slug === bakerySlug
-  );
+  const bakery = bakeries.find((bakery) => bakery.slug === bakerySlug);
 
   if (!bakery) return <Redirect to="/bakeries" />;
 

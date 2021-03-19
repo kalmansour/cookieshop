@@ -1,9 +1,19 @@
+// React
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 import Modal from "react-modal";
+
+// Redux
+import { useDispatch } from "react-redux";
+import { createBakery } from "../../store/actions/bakeryActions";
+
+// Styles
 import { CreateButtonStyled } from "../../styles";
-import bakeryStore from "../../stores/bakeryStore";
 
 const BakeryModal = ({ isOpen, closeModal }) => {
+  const dispatch = useDispatch();
+  const history = useHistory();
+
   const [bakery, setBakery] = useState({
     name: "",
     image: "",
@@ -15,11 +25,12 @@ const BakeryModal = ({ isOpen, closeModal }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    bakeryStore.createBakery(bakery);
-    closeModal();
+    dispatch(createBakery(bakery));
+    history.push("/bakeries");
+    // closeModal();
   };
 
-  const hangleImage = (event) => {
+  const handleImage = (event) => {
     setBakery({ ...bakery, image: event.target.files[0] });
   };
 
@@ -49,7 +60,7 @@ const BakeryModal = ({ isOpen, closeModal }) => {
             name="image"
             type="file"
             className="form-control"
-            onChange={hangleImage}
+            onChange={handleImage}
           />
         </div>
         <CreateButtonStyled type="submit" className="btn float-right">

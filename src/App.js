@@ -11,8 +11,8 @@ import Routes from "./components/Routes";
 import NavBar from "./components/NavBar";
 
 //Stores
-import bakeryStore from "./stores/bakeryStore";
-import cookieStore from "./stores/cookieStore";
+// import bakeryStore from "./stores/bakeryStore";
+// import cookieStore from "./stores/cookieStore";
 
 const fetchCookies = async () => {
   try {
@@ -20,6 +20,15 @@ const fetchCookies = async () => {
     this.cookies = response.data;
   } catch (error) {
     console.log("CookieStore -> fetchCookies -> error", error);
+  }
+};
+
+const fetchBakeries = async () => {
+  try {
+    const response = await instance.get("/bakeries");
+    this.bakeries = response.data;
+  } catch (error) {
+    console.log("BakeryStore -> fetchBakeries -> error", error);
   }
 };
 
@@ -43,4 +52,5 @@ function App() {
 }
 
 fetchCookies();
+fetchBakeries();
 export default App;

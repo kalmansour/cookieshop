@@ -1,7 +1,12 @@
 import instance from "../instance";
 
 // ACTION TYPES
-import { CREATE_COOKIE, DELETE_COOKIE, UPDATE_COOKIE } from "./types";
+import {
+  FETCH_COOKIES,
+  CREATE_COOKIE,
+  DELETE_COOKIE,
+  UPDATE_COOKIE,
+} from "./types";
 
 // Create Cookie Action
 export const createCookie = (newCookie) => async (dispatch) => {
@@ -51,8 +56,6 @@ export const updateCookie = (updatedCookie) => async (dispatch) => {
     console.log("updateCookie -> error", error);
   }
 };
-
-export const FETCH_COOKIES = "FETCH_COOKIES";
 
 export const fetchCookies = () => {
   return async (dispatch) => {

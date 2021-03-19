@@ -1,4 +1,5 @@
 import slugify from "react-slugify";
+import {} from "../actions/types";
 
 const initialState = {
   cookies: [],
