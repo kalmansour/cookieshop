@@ -33,11 +33,11 @@ function App() {
     <ThemeProvider theme={theme[currentTheme]}>
       <GlobalStyle />
       <NavBar currentTheme={currentTheme} toggleTheme={toggleTheme} />
-      {bakeryStore.loading || cookieStore.loading ? (
+      {/* {bakeryStore.loading || cookieStore.loading ? (
         <h1>Loadingggg</h1>
-      ) : (
-        <Routes />
-      )}
+      ) : ( */}
+      <Routes />
+      {/* )} */}
     </ThemeProvider>
   );
 }
