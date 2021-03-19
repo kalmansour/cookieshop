@@ -24,7 +24,7 @@ const CookieList = () => {
     <>
       {/* <AddButton /> */}
       <SearchBar placeholder="search for cookie name" setQuery={setQuery} />
-      <ListWrapper>{cookieList}</ListWrapper>
+      <ListWrapper classname="row">{cookieList}</ListWrapper>
     </>
   );
 };

@@ -1,9 +1,14 @@
 import { useState } from "react";
 import Modal from "react-modal";
 import { CreateButtonStyled } from "../../styles";
-import cookieStore from "../../stores/cookieStore";
+import { useDispatch } from "react-redux";
+import { createCookie } from "../../store/action";
+import { useHistory } from "react-router-dom";
 
 const CookieModal = ({ bakery, isOpen, closeModal, oldCookie }) => {
+  const dispatch = useDispatch();
+  const history = useHistory();
+
   const [cookie, setCookie] = useState(
     oldCookie ?? {
       name: "",
@@ -19,8 +24,11 @@ const CookieModal = ({ bakery, isOpen, closeModal, oldCookie }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    cookieStore[oldCookie ? "updateCookie" : "createCookie"](cookie, bakery);
-    closeModal();
+    // dispatch[oldCookie ? "updateCookie" : "createCookie"](cookie, bakery);
+    if (oldCookie) dispatch(updateCookie(cookie, bakery));
+    else dispatch(createCookie(cookie, bakery));
+    history.push("/cookies");
+    // closeModal();
   };
 
   const hangleImage = (event) => {
