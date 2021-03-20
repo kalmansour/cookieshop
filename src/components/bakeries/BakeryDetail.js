@@ -3,16 +3,16 @@ import { observer } from "mobx-react";
 import { useSelector } from "react-redux";
 
 //Stores
-import cookieStore from "../stores/cookieStore";
+import cookieStore from "../../stores/cookieStore";
 
 //Components
-import CookieList from "./CookieList";
-import UpdateButton from "./buttons/UpdateButton";
-import AddButton from "./buttons/AddButton";
+import CookieList from "../cookies/CookieList";
+import UpdateButton from "../buttons/UpdateButton";
+import AddButton from "../buttons/AddButton";
 
 //Styles
-import { DetailWrapper } from "../styles";
-import authStore from "../stores/authStore";
+import { DetailWrapper } from "../../styles";
+import authStore from "../../stores/authStore";
 
 const BakeryDetail = () => {
   const { bakerySlug } = useParams();

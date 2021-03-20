@@ -3,17 +3,17 @@ import { observer } from "mobx-react";
 import { useSelector } from "react-redux";
 
 // Buttons
-import AddBakeryButton from "./buttons/AddBakeryButton";
+import AddBakeryButton from "../buttons/AddBakeryButton";
 
 // Components
 import BakeryItem from "./BakeryItem";
-import SearchBar from "./SearchBar";
+import SearchBar from "../search/SearchBar";
 
 // Stores
-import authStore from "../stores/authStore";
+import authStore from "../../stores/authStore";
 
 // Styles
-import { Title, ListWrapper } from "../styles";
+import { Title, ListWrapper } from "../../styles";
 
 const BakeryList = () => {
   const bakeries = useSelector((state) => state.bakeries);

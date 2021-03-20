@@ -1,10 +1,10 @@
-import lightLogo from "../light-logo.png";
-import darkLogo from "../dark-logo.png";
+import lightLogo from "../../light-logo.png";
+import darkLogo from "../../dark-logo.png";
 import { observer } from "mobx-react";
 
 //Components
-import SignupButton from "./buttons/SignupButton";
-import SigninButton from "./buttons/SigninButton";
+import SignupButton from "../buttons/SignupButton";
+import SigninButton from "../buttons/SigninButton";
 
 // Styles
 import {
@@ -13,8 +13,8 @@ import {
   Logo,
   NavItem,
   UsernameStyled,
-} from "../styles";
-import authStore from "../stores/authStore";
+} from "../../styles";
+import authStore from "../../stores/authStore";
 import { FiLogOut } from "react-icons/fi";
 
 const NavBar = ({ currentTheme, toggleTheme }) => {

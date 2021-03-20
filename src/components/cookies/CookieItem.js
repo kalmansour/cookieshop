@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import { observer } from "mobx-react";
+// import { observer } from "mobx-react";
 
-import { CookieWrapper } from "../styles";
+import { CookieWrapper } from "../../styles";
 
 //Buttons
-import DeleteButton from "./buttons/DeleteButton";
-import UpdateButton from "./buttons/UpdateButton";
+import DeleteButton from "../buttons/DeleteButton";
+import UpdateButton from "../buttons/UpdateButton";
 
 const CookieItem = ({ cookie }) => {
   return (
@@ -21,4 +21,4 @@ const CookieItem = ({ cookie }) => {
   );
 };
 
-export default observer(CookieItem);
+export default CookieItem;

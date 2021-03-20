@@ -1,4 +1,4 @@
-import { Description, ShopImage, Title } from "../styles";
+import { Description, ShopImage, Title } from "../../styles";
 
 import React from "react";
 

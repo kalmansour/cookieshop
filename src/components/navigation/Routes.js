@@ -1,14 +1,14 @@
 import { Route, Switch } from "react-router";
 import { observer } from "mobx-react";
 //Components
-import BakeryList from "../components/BakeryList";
-import BakeryDetail from "../components/BakeryDetail";
-import CookieList from "../components/CookieList";
-import CookieDetail from "../components/CookieDetail";
-import Home from "../components/Home";
+import BakeryList from "../bakeries/BakeryList";
+import BakeryDetail from "../bakeries/BakeryDetail";
+import CookieList from "../cookies/CookieList";
+import CookieDetail from "../cookies/CookieDetail";
+import Home from "../home/Home";
 
 //Stores
-import cookieStore from "../stores/cookieStore";
+import cookieStore from "../../stores/cookieStore";
 
 const Routes = () => {
   return (

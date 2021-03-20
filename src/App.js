@@ -7,8 +7,8 @@ import { GlobalStyle, theme } from "./styles";
 import { ThemeProvider } from "styled-components";
 
 //Components
-import Routes from "./components/Routes";
-import NavBar from "./components/NavBar";
+import Routes from "./components/navigation/Routes";
+import NavBar from "./components/navigation/NavBar";
 
 //Stores
 // import bakeryStore from "./stores/bakeryStore";

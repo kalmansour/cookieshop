@@ -2,11 +2,11 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 
 // Styling
-import { ListWrapper } from "../styles";
+import { ListWrapper } from "../../styles";
 
 //Components
 import CookieItem from "./CookieItem";
-import SearchBar from "./SearchBar";
+import SearchBar from "../search/SearchBar";
 
 const CookieList = () => {
   const cookies = useSelector((state) => state.cookies.cookies);

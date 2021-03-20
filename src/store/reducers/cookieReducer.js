@@ -1,11 +1,10 @@
 import slugify from "react-slugify";
-import {} from "../actions/types";
 
-const initialState = {
-  cookies: [],
-};
+// const initialState = {
+//   cookies: [],
+// };
 
-const reducer = (state = initialState, action) => {
+const cookieReducer = (state = [], action) => {
   switch (action.type) {
     case "FETCH_COOKIES":
       return {
@@ -40,4 +39,4 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-export default reducer;
+export default cookieReducer;

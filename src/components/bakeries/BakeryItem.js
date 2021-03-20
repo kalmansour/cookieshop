@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { BakeryItemStyled } from "../styles";
+import { BakeryItemStyled } from "../../styles";
 
 const BakeryItem = ({ bakery }) => {
   return (

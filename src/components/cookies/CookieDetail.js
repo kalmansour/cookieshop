@@ -2,12 +2,12 @@ import { Redirect, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 //Styles
-import { DetailWrapper } from "../styles";
+import { DetailWrapper } from "../../styles";
 
 //Components
-import UpdateButton from "./buttons/UpdateButton";
+import UpdateButton from "../buttons/UpdateButton";
 
-import DeleteButton from "./buttons/DeleteButton";
+import DeleteButton from "../buttons/DeleteButton";
 
 const CookieDetail = () => {
   const { cookieSlug } = useParams();
