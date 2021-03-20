@@ -1,10 +1,10 @@
 import slugify from "react-slugify";
 
-// const initialState = {
-//   bakeries: [],
-// };
+const initialState = {
+  bakeries: [],
+};
 
-const bakeryReducer = (state = [], action) => {
+const bakeryReducer = (state = initialState, action) => {
   switch (action.type) {
     case "FETCH_BAKERIES":
       return {

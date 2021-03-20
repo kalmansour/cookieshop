@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 
+// Combined Reducer
 import rootReducer from "../store/reducers/index";
 
 // Actions

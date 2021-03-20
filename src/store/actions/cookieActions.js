@@ -1,4 +1,4 @@
-import instance from "../instance";
+import instance from "./instance";
 
 // ACTION TYPES
 import {
@@ -40,9 +40,11 @@ export const deleteCookie = (cookieId) => async (dispatch) => {
 // Update Cookie Action
 export const updateCookie = (updatedCookie) => async (dispatch) => {
   try {
+    // update in the backend
     const formData = new FormData();
     for (const key in updatedCookie) formData.append(key, updatedCookie[key]);
     await instance.put(`/cookies/${updatedCookie.id}`, formData);
+    // update in the frontend
     const cookie = this.cookies.find(
       (cookie) => cookie.id === updatedCookie.id
     );

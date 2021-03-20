@@ -1,4 +1,5 @@
 import { Route, Switch } from "react-router";
+import { useSelector } from "react-redux";
 
 //Components
 import BakeryList from "../bakeries/BakeryList";
@@ -7,10 +8,9 @@ import CookieList from "../cookies/CookieList";
 import CookieDetail from "../cookies/CookieDetail";
 import Home from "../home/Home";
 
-//Stores
-import cookieStore from "../../stores/cookieStore";
-
 const Routes = () => {
+  const cookies = useSelector((state) => state.cookies.cookies);
+
   return (
     <Switch>
       <Route path="/bakeries/:bakerySlug">
@@ -23,7 +23,7 @@ const Routes = () => {
         <CookieDetail />
       </Route>
       <Route path="/cookies">
-        <CookieList cookies={cookieStore.cookies} />
+        <CookieList cookies={cookies} />
       </Route>
       <Route path="/">
         <Home />

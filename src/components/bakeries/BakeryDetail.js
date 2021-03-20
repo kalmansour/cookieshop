@@ -1,30 +1,25 @@
 import { Redirect, useParams } from "react-router";
 import { useSelector } from "react-redux";
+import authStore from "../../stores/authStore";
 
-//Stores
-import cookieStore from "../../stores/cookieStore";
-
-//Components
-import CookieList from "../cookies/CookieList";
+// Buttons
 import UpdateButton from "../buttons/UpdateButton";
 import AddButton from "../buttons/AddButton";
 
+//Components
+import CookieList from "../cookies/CookieList";
+
 //Styles
 import { DetailWrapper } from "../../styles";
-import authStore from "../../stores/authStore";
 
 const BakeryDetail = () => {
   const { bakerySlug } = useParams();
-  const bakeries = useSelector((state) => state.bakeries);
-  // const cookies = useSelector((state) => state.cookies);
 
-  const bakery = bakeries.find((bakery) => bakery.slug === bakerySlug);
+  const bakery = useSelector((state) =>
+    state.bakeries.find((_bakery) => _bakery.slug === bakerySlug)
+  );
 
   if (!bakery) return <Redirect to="/bakeries" />;
-
-  const cookies = bakery.cookies.map((cookie) =>
-    cookieStore.getCookieById(cookie.id)
-  );
 
   return (
     <div className="row">
@@ -36,7 +31,7 @@ const BakeryDetail = () => {
         </DetailWrapper>
       </div>
       <div className="col-12">
-        <CookieList cookies={cookies} />
+        <CookieList cookies={bakery.cookies} />
         {authStore.user && <AddButton bakery={bakery} />}
       </div>
     </div>

@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import cookieReducer from "./cookieReducer";
 import bakeryReducer from "./bakeryReducer";
+import cookieReducer from "./cookieReducer";
 
 const rootReducer = combineReducers({
   bakeries: bakeryReducer,

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
 // Styling
 import { ListWrapper } from "../../styles";
@@ -8,10 +8,11 @@ import { ListWrapper } from "../../styles";
 import CookieItem from "./CookieItem";
 import SearchBar from "../search/SearchBar";
 
-const CookieList = () => {
-  const cookies = useSelector((state) => state.cookies.cookies);
-
+const CookieList = ({ cookies }) => {
   const [query, setQuery] = useState("");
+
+  // const cookies = useSelector((state) => state.cookies.cookies);
+  // const cookies = useSelector((state) => state.cookies);
 
   const filteredCookies = cookies.filter((cookie) =>
     cookie.name.toLowerCase().includes(query.toLowerCase())

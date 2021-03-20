@@ -1,4 +1,4 @@
-import instance from "../instance";
+import instance from "./instance";
 
 // ACTION TYPES
 import { FETCH_BAKERIES, CREATE_BAKERY } from "./types";
