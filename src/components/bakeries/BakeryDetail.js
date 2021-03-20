@@ -1,6 +1,7 @@
 import { Redirect, useParams } from "react-router";
+
+// Redux
 import { useSelector } from "react-redux";
-import authStore from "../../stores/authStore";
 
 // Buttons
 import UpdateButton from "../buttons/UpdateButton";
@@ -14,6 +15,8 @@ import { DetailWrapper } from "../../styles";
 
 const BakeryDetail = () => {
   const { bakerySlug } = useParams();
+
+  const user = useSelector((state) => state.authReducer.user);
 
   const bakery = useSelector((state) =>
     state.bakeries.find((_bakery) => _bakery.slug === bakerySlug)
@@ -32,7 +35,7 @@ const BakeryDetail = () => {
       </div>
       <div className="col-12">
         <CookieList cookies={bakery.cookies} />
-        {authStore.user && <AddButton bakery={bakery} />}
+        {user && <AddButton bakery={bakery} />}
       </div>
     </div>
   );

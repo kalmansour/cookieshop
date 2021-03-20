@@ -9,7 +9,7 @@ import BakeryItem from "./BakeryItem";
 import SearchBar from "../search/SearchBar";
 
 // Stores
-import authStore from "../../stores/authStore";
+// import authStore from "../../stores/authStore";
 
 // Styles
 import { Title, ListWrapper } from "../../styles";
@@ -25,7 +25,10 @@ const BakeryList = () => {
   return (
     <div className="container">
       <Title>Bakeries</Title>
-      {authStore.user && <AddBakeryButton />}
+      {
+        // authStore.user &&
+        <AddBakeryButton />
+      }
       <SearchBar
         placeholder="Search for a bakery name..."
         setQuery={setQuery}

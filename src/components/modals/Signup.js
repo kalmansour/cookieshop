@@ -1,6 +1,12 @@
 import { useState } from "react";
 import Modal from "react-modal";
-import authStore from "../../stores/authStore";
+import { useHistory } from "react-router-dom";
+
+// Redux
+import { useDispatch } from "react-redux";
+import { signup } from "../../store/actions/authActions";
+
+// Styles
 import { CreateButtonStyled } from "../../styles";
 
 const customStyles = {
@@ -15,6 +21,9 @@ const customStyles = {
 };
 
 const Signup = ({ isOpen, closeModal }) => {
+  const dispatch = useDispatch();
+  const history = useHistory();
+
   const [user, setUser] = useState({
     firstName: "",
     lastName: "",
@@ -28,7 +37,7 @@ const Signup = ({ isOpen, closeModal }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    authStore.signup(user);
+    dispatch(signup(user, history));
     closeModal();
   };
   return (

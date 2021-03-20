@@ -7,3 +7,6 @@ export const UPDATE_COOKIE = "UPDATE_COOKIE";
 // Bakery Actions
 export const FETCH_BAKERIES = "FETCH_BAKERIES";
 export const CREATE_BAKERY = "CREATE_BAKERY";
+
+// User Actions
+export const SET_USER = "SET_USER";

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Modal from "react-modal";
-import authStore from "../../stores/authStore";
+// import authStore from "../../stores/authStore";
 import { CreateButtonStyled } from "../../styles";
 
 const customStyles = {
@@ -25,7 +25,7 @@ const SigninModal = ({ closeModal, isOpen }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    authStore.signin(user);
+    // authStore.signin(user);
     closeModal();
   };
 
