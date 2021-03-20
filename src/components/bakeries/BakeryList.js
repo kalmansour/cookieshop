@@ -8,9 +8,6 @@ import AddBakeryButton from "../buttons/AddBakeryButton";
 import BakeryItem from "./BakeryItem";
 import SearchBar from "../search/SearchBar";
 
-// Stores
-// import authStore from "../../stores/authStore";
-
 // Styles
 import { Title, ListWrapper } from "../../styles";
 

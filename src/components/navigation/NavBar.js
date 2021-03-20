@@ -2,7 +2,8 @@ import lightLogo from "../../light-logo.png";
 import darkLogo from "../../dark-logo.png";
 
 // Redux
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { signout } from "../../store/actions/authActions";
 
 //Components
 import SignupButton from "../buttons/SignupButton";
@@ -17,9 +18,10 @@ import {
   UsernameStyled,
 } from "../../styles";
 
-// import { FiLogOut } from "react-icons/fi";
+import { FiLogOut } from "react-icons/fi";
 
 const NavBar = ({ currentTheme, toggleTheme }) => {
+  const dispatch = useDispatch();
   const user = useSelector((state) => state.authReducer.user);
   return (
     <NavStyled className="navbar navbar-expand-lg">
@@ -50,7 +52,11 @@ const NavBar = ({ currentTheme, toggleTheme }) => {
             {user ? (
               <>
                 <UsernameStyled>Bonjour {user.username}</UsernameStyled>
-                {/* <FiLogOut onClick={authStore.signout} size="2em" color="red" /> */}
+                <FiLogOut
+                  onClick={() => dispatch(signout())}
+                  size="2em"
+                  color="red"
+                />
               </>
             ) : (
               <>

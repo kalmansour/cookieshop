@@ -32,3 +32,13 @@ export const signin = (userData, history) => {
     }
   };
 };
+
+export const signout = () => {
+  return (dispatch) => {
+    // Shouldn't it be asyncronous
+    dispatch({
+      type: SET_USER,
+      payload: null,
+    });
+  };
+};
