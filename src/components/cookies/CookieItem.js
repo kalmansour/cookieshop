@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-// import { observer } from "mobx-react";
 
 import { CookieWrapper } from "../../styles";
 

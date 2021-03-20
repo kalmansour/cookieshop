@@ -1,5 +1,4 @@
 import { Redirect, useParams } from "react-router";
-import { observer } from "mobx-react";
 import { useSelector } from "react-redux";
 
 //Stores
@@ -43,4 +42,4 @@ const BakeryDetail = () => {
     </div>
   );
 };
-export default observer(BakeryDetail);
+export default BakeryDetail;

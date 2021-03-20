@@ -1,6 +1,5 @@
 import lightLogo from "../../light-logo.png";
 import darkLogo from "../../dark-logo.png";
-import { observer } from "mobx-react";
 
 //Components
 import SignupButton from "../buttons/SignupButton";
@@ -68,4 +67,4 @@ const NavBar = ({ currentTheme, toggleTheme }) => {
   );
 };
 
-export default observer(NavBar);
+export default NavBar;

@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import { observer } from "mobx-react";
 import instance from "./store/instance";
 
 // Styles
@@ -9,10 +8,6 @@ import { ThemeProvider } from "styled-components";
 //Components
 import Routes from "./components/navigation/Routes";
 import NavBar from "./components/navigation/NavBar";
-
-//Stores
-// import bakeryStore from "./stores/bakeryStore";
-// import cookieStore from "./stores/cookieStore";
 
 const fetchCookies = async () => {
   try {

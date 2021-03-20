@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { observer } from "mobx-react";
 import { useSelector } from "react-redux";
 
 // Buttons
@@ -36,4 +35,4 @@ const BakeryList = () => {
   );
 };
 
-export default observer(BakeryList);
+export default BakeryList;

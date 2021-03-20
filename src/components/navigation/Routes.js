@@ -1,5 +1,5 @@
 import { Route, Switch } from "react-router";
-import { observer } from "mobx-react";
+
 //Components
 import BakeryList from "../bakeries/BakeryList";
 import BakeryDetail from "../bakeries/BakeryDetail";
@@ -32,4 +32,4 @@ const Routes = () => {
   );
 };
 
-export default observer(Routes);
+export default Routes;
