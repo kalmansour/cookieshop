@@ -17,7 +17,7 @@ const cookieReducer = (state = initialState, action) => {
       newCookie.slug = slugify(newCookie.name);
       return {
         ...state,
-        cookies: [...state.cookies, action.payload.newCookie],
+        cookies: [...state.cookies, newCookie],
       };
     case "DELETE_COOKIE":
       return {

@@ -1,6 +1,6 @@
 // React
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import Modal from "react-modal";
 
 // Redux
@@ -12,7 +12,7 @@ import { CreateButtonStyled } from "../../styles";
 
 const CookieModal = ({ bakery, isOpen, closeModal, oldCookie }) => {
   const dispatch = useDispatch();
-  const history = useHistory();
+  // const history = useHistory();
 
   const [cookie, setCookie] = useState(
     oldCookie ?? {
@@ -29,11 +29,10 @@ const CookieModal = ({ bakery, isOpen, closeModal, oldCookie }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // dispatch[oldCookie ? "updateCookie" : "createCookie"](cookie, bakery);
     if (oldCookie) dispatch(updateCookie(cookie, bakery));
     else dispatch(createCookie(cookie, bakery));
-    history.push("/cookies");
-    // closeModal();
+    // history.push("/cookies");
+    closeModal();
   };
 
   const handleImage = (event) => {

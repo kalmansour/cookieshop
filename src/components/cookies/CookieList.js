@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import { useSelector } from "react-redux";
 
 // Styling
 import { ListWrapper } from "../../styles";
@@ -11,9 +10,6 @@ import SearchBar from "../search/SearchBar";
 const CookieList = ({ cookies }) => {
   const [query, setQuery] = useState("");
 
-  // const cookies = useSelector((state) => state.cookies.cookies);
-  // const cookies = useSelector((state) => state.cookies);
-
   const filteredCookies = cookies.filter((cookie) =>
     cookie.name.toLowerCase().includes(query.toLowerCase())
   );
@@ -23,7 +19,6 @@ const CookieList = ({ cookies }) => {
 
   return (
     <>
-      {/* <AddButton /> */}
       <SearchBar placeholder="search for cookie name" setQuery={setQuery} />
       <ListWrapper classname="row">{cookieList}</ListWrapper>
     </>
