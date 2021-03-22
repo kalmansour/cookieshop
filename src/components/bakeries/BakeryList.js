@@ -12,7 +12,7 @@ import SearchBar from "../search/SearchBar";
 import { Title, ListWrapper } from "../../styles";
 
 const BakeryList = () => {
-  const bakeries = useSelector((state) => state.bakeries);
+  const bakeries = useSelector((state) => state.bakeryReducer.bakeries);
 
   const [query, setQuery] = useState("");
 

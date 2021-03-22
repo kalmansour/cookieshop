@@ -19,6 +19,8 @@ const bakeryReducer = (state = initialState, action) => {
         ...state,
         bakeries: [...state.bakeries, action.payload.newBakery],
       };
+    default:
+      return state;
   }
 };
 

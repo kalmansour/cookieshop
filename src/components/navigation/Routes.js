@@ -9,7 +9,7 @@ import CookieDetail from "../cookies/CookieDetail";
 import Home from "../home/Home";
 
 const Routes = () => {
-  const cookies = useSelector((state) => state.cookies.cookies);
+  const cookies = useSelector((state) => state.cookieReducer.cookies);
 
   return (
     <Switch>

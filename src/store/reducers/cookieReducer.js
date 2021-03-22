@@ -36,6 +36,8 @@ const cookieReducer = (state = initialState, action) => {
           return cookie;
         }),
       };
+    default:
+      return state;
   }
 };
 
